@@ -7,29 +7,29 @@ using System.Threading.Tasks;
 
 namespace ProjectWebApp.Data.Repository
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class GenericRepository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDbContext _db;
-        internal DbSet<TEntity> dbSet;
+        internal DbSet<T> dbSet;
 
         public GenericRepository(ApplicationDbContext db)
         {
             _db = db;
-            this.dbSet = _db.Set<TEntity>();
+            this.dbSet = _db.Set<T>();
         }
-        public void Add(TEntity entity)
+        public void Add(T entity)
         {
             dbSet.Add(entity);
         }
 
-        public TEntity Get(int id)
+        public T Get(int id)
         {
             return dbSet.Find(id);
         }
 
-        public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
         {
-            IQueryable<TEntity> query = dbSet;
+            IQueryable<T> query = dbSet;
             if (filter != null)
             {
                 query = query.Where(filter);
@@ -48,9 +48,9 @@ namespace ProjectWebApp.Data.Repository
             return query.ToList();
         }
 
-        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, string includeProperties = null)
+        public T GetFirstOrDefault(Expression<Func<T, bool>> filter = null, string includeProperties = null)
         {
-            IQueryable<TEntity> query = dbSet;
+            IQueryable<T> query = dbSet;
             if (filter != null)
             {
                 query = query.Where(filter);
@@ -68,16 +68,16 @@ namespace ProjectWebApp.Data.Repository
 
         public void Remove(int id)
         {
-            TEntity entity = dbSet.Find(id);
+            T entity = dbSet.Find(id);
             Remove(entity);
         }
 
-        public void Remove(TEntity entity)
+        public void Remove(T entity)
         {
             dbSet.Remove(entity);
         }
 
-        public void RemoveRange(IEnumerable<TEntity> entities)
+        public void RemoveRange(IEnumerable<T> entities)
         {
             dbSet.RemoveRange(entities);
         }

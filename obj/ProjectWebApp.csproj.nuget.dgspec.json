@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\Project\\ProjectWebApp\\ProjectWebApp.csproj": {}
+    "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\ProjectWebApp\\ProjectWebApp.csproj": {}
   },
   "projects": {
-    "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\Project\\ProjectWebApp\\ProjectWebApp.csproj": {
+    "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\ProjectWebApp\\ProjectWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\Project\\ProjectWebApp\\ProjectWebApp.csproj",
+        "projectUniqueName": "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\ProjectWebApp\\ProjectWebApp.csproj",
         "projectName": "ProjectWebApp",
-        "projectPath": "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\Project\\ProjectWebApp\\ProjectWebApp.csproj",
+        "projectPath": "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\ProjectWebApp\\ProjectWebApp.csproj",
         "packagesPath": "C:\\Users\\Jarno\\.nuget\\packages\\",
-        "outputPath": "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\Project\\ProjectWebApp\\obj\\",
+        "outputPath": "E:\\AA Thomas More\\2020 - 2021\\Webapplicaties\\ProjectWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jarno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,13 +60,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.9, )"
+              "version": "[3.1.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

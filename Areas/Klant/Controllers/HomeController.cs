@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProjectWebApp.Data.Repository.IRepository;
 using ProjectWebApp.Models;
 
 namespace ProjectWebApp.Areas.Klant.Controllers
@@ -13,14 +14,18 @@ namespace ProjectWebApp.Areas.Klant.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger, IUnitOfWork unitOfWork)
         {
             _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
+            //IEnumerable<Opleiding> opleidingLijst = _unitOfWork.oplei
             return View();
         }
 

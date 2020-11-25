@@ -15,7 +15,7 @@ namespace ProjectWebApp.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.9")
+                .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -230,16 +230,11 @@ namespace ProjectWebApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Titel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AlgemeenhedenID");
-
-                    b.HasIndex("OpleidingId");
 
                     b.ToTable("Algemeenheden");
                 });
@@ -256,12 +251,7 @@ namespace ProjectWebApp.Data.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
                     b.HasKey("CategorieID");
-
-                    b.HasIndex("OpleidingId");
 
                     b.ToTable("Categorieen");
                 });
@@ -277,12 +267,7 @@ namespace ProjectWebApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
                     b.HasKey("FederatieID");
-
-                    b.HasIndex("OpleidingId");
 
                     b.ToTable("Federaties");
                 });
@@ -353,12 +338,7 @@ namespace ProjectWebApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
                     b.HasKey("NiveauID");
-
-                    b.HasIndex("OpleidingId");
 
                     b.ToTable("Niveaus");
                 });
@@ -374,16 +354,11 @@ namespace ProjectWebApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Titel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OmschrijvingID");
-
-                    b.HasIndex("OpleidingId");
 
                     b.ToTable("Omschrijvingen");
                 });
@@ -395,14 +370,49 @@ namespace ProjectWebApp.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AlgemeenhedenID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategorieID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FederatieID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Naam")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("NiveauID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OmschrijvingID")
+                        .HasColumnType("int");
+
                     b.Property<double>("Prijs")
                         .HasColumnType("float");
 
+                    b.Property<int>("SlotID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VoorwaardenID")
+                        .HasColumnType("int");
+
                     b.HasKey("OpleidingID");
+
+                    b.HasIndex("AlgemeenhedenID");
+
+                    b.HasIndex("CategorieID");
+
+                    b.HasIndex("FederatieID");
+
+                    b.HasIndex("NiveauID");
+
+                    b.HasIndex("OmschrijvingID");
+
+                    b.HasIndex("SlotID");
+
+                    b.HasIndex("VoorwaardenID");
 
                     b.ToTable("Opleidingen");
                 });
@@ -418,16 +428,11 @@ namespace ProjectWebApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Titel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SlotID");
-
-                    b.HasIndex("OpleidingId");
 
                     b.ToTable("Slot");
                 });
@@ -443,16 +448,11 @@ namespace ProjectWebApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Titel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("VoorwaardenID");
-
-                    b.HasIndex("OpleidingId");
 
                     b.ToTable("Voorwaarden");
                 });
@@ -508,65 +508,47 @@ namespace ProjectWebApp.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ProjectWebApp.Models.Algemeenheden", b =>
+            modelBuilder.Entity("ProjectWebApp.Models.Opleiding", b =>
                 {
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("Algemeenheden")
-                        .HasForeignKey("OpleidingId")
+                    b.HasOne("ProjectWebApp.Models.Algemeenheden", "Algemeenheden")
+                        .WithMany("Opleidingen")
+                        .HasForeignKey("AlgemeenhedenID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("ProjectWebApp.Models.Categorie", b =>
-                {
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("Categories")
-                        .HasForeignKey("OpleidingId")
+                    b.HasOne("ProjectWebApp.Models.Categorie", "Categorie")
+                        .WithMany("Opleidingen")
+                        .HasForeignKey("CategorieID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("ProjectWebApp.Models.Federatie", b =>
-                {
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("Federaties")
-                        .HasForeignKey("OpleidingId")
+                    b.HasOne("ProjectWebApp.Models.Federatie", "Federatie")
+                        .WithMany("Opleidingen")
+                        .HasForeignKey("FederatieID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("ProjectWebApp.Models.Niveau", b =>
-                {
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("Niveaus")
-                        .HasForeignKey("OpleidingId")
+                    b.HasOne("ProjectWebApp.Models.Niveau", "Niveau")
+                        .WithMany("Opleidingen")
+                        .HasForeignKey("NiveauID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("ProjectWebApp.Models.Omschrijving", b =>
-                {
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("Omschrijvingen")
-                        .HasForeignKey("OpleidingId")
+                    b.HasOne("ProjectWebApp.Models.Omschrijving", "Omschrijving")
+                        .WithMany("Opleidingen")
+                        .HasForeignKey("OmschrijvingID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("ProjectWebApp.Models.Slot", b =>
-                {
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("Slots")
-                        .HasForeignKey("OpleidingId")
+                    b.HasOne("ProjectWebApp.Models.Slot", "Slot")
+                        .WithMany("Opleidingen")
+                        .HasForeignKey("SlotID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("ProjectWebApp.Models.Voorwaarden", b =>
-                {
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("Voorwaardens")
-                        .HasForeignKey("OpleidingId")
+                    b.HasOne("ProjectWebApp.Models.Voorwaarden", "Voorwaarden")
+                        .WithMany("Opleidingen")
+                        .HasForeignKey("VoorwaardenID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

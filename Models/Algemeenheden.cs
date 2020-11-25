@@ -14,8 +14,6 @@ namespace ProjectWebApp.Models
         public string Titel { get; set; }
         [Required]
         public string Beschrijving { get; set; }
-        [Required]
-        public int OpleidingId { get; set; }
-        public Opleiding Opleiding { get; set; }
+        public ICollection<Opleiding> Opleidingen { get; set; }
     }
 }

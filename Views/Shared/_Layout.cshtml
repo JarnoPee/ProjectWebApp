@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom  ">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> JP Dive Store</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JP Diving</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,18 +25,20 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Content Management
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Opleidingen" asp-action="Index">Opleidingen</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Categories" asp-action="Index">Categorieën</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Federaties" asp-action="Index">Federatie</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Niveaus" asp-action="Index">Niveau</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Omschrijvings" asp-action="Index">Omschrijvingen</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Slots" asp-action="Index">Slot</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Voorwaarden" asp-action="Index">Voorwaarden</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Algemeenheden" asp-action="Index">Algemeenheden</a>
+
                         </div>
                     </li>
                 </ul>

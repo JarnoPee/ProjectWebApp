@@ -11,14 +11,20 @@ namespace ProjectWebApp.Models
         public int OpleidingID { get; set; }
         [Required]
         public string Naam { get; set; }
-        [Required]
         public double Prijs { get; set; }
-        public ICollection<Niveau> Niveaus { get; set; }
-        public ICollection<Federatie> Federaties { get; set; }
-        public ICollection<Categorie> Categories { get; set; }
-        public ICollection<Slot> Slots { get; set; }
-        public ICollection<Voorwaarden> Voorwaardens { get; set; }
-        public ICollection<Omschrijving> Omschrijvingen { get; set; }
-        public ICollection<Algemeenheden> Algemeenheden { get; set; }
+        public int NiveauID { get; set; }
+        public int FederatieID { get; set; }
+        public int CategorieID { get; set; }
+        public int SlotID { get; set; }
+        public int VoorwaardenID { get; set; }
+        public int OmschrijvingID { get; set; }
+        public int AlgemeenhedenID { get; set; }
+        public Niveau Niveau { get; set; }
+        public Federatie Federatie { get; set; }
+        public Categorie Categorie { get; set; }
+        public Slot Slot { get; set; }
+        public Voorwaarden Voorwaarden { get; set; }
+        public Omschrijving Omschrijving { get; set; }
+        public Algemeenheden Algemeenheden { get; set; }
     }
 }
