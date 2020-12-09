@@ -1,85 +1,44 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace ProjectWebApp.Data.Repository
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly ApplicationDbContext _db;
-        internal DbSet<T> dbSet;
+        private readonly ApplicationDbContext _context;
 
-        public GenericRepository(ApplicationDbContext db)
+        public GenericRepository(ApplicationDbContext context)
         {
-            _db = db;
-            this.dbSet = _db.Set<T>();
-        }
-        public void Add(T entity)
-        {
-            dbSet.Add(entity);
+            _context = context;
         }
 
-        public T Get(int id)
+        public IQueryable<TEntity> GetAll()
         {
-            return dbSet.Find(id);
+            return _context.Set<TEntity>();
         }
 
-        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
+        public async Task<TEntity> GetById(int id)
         {
-            IQueryable<T> query = dbSet;
-            if (filter != null)
-            {
-                query = query.Where(filter);
-            }
-            if (includeProperties != null)
-            {
-                foreach(var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(includeProp);
-                }
-            }
-            if (orderBy != null)
-            {
-                return orderBy(query).ToList();
-            }
-            return query.ToList();
+            return await _context.Set<TEntity>().FindAsync(id);
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter = null, string includeProperties = null)
+        public void Create(TEntity entity)
         {
-            IQueryable<T> query = dbSet;
-            if (filter != null)
-            {
-                query = query.Where(filter);
-            }
-            if (includeProperties != null)
-            {
-                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(includeProp);
-                }
-            }
-            return query.FirstOrDefault();
-
+            _context.Set<TEntity>().Add(entity);
         }
 
-        public void Remove(int id)
+        public void Update(TEntity entity)
         {
-            T entity = dbSet.Find(id);
-            Remove(entity);
+            _context.Set<TEntity>().Update(entity);
         }
 
-        public void Remove(T entity)
+        public void Delete(TEntity entity)
         {
-            dbSet.Remove(entity);
+            _context.Set<TEntity>().Remove(entity);
         }
 
-        public void RemoveRange(IEnumerable<T> entities)
-        {
-            dbSet.RemoveRange(entities);
-        }
     }
 }
+

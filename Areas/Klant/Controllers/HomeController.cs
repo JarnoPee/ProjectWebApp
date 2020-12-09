@@ -5,8 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ProjectWebApp.Data.Repository.IRepository;
+using ProjectWebApp.Data.UnitOfWork;
 using ProjectWebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjectWebApp.Areas.Klant.Controllers
 {
@@ -23,9 +24,9 @@ namespace ProjectWebApp.Areas.Klant.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //IEnumerable<Opleiding> opleidingLijst = _unitOfWork.oplei
+            IEnumerable<Opleiding> opleidingLijst = await _unitOfWork.OpleidingRepository.GetAll().Include(x => x.Voorwaarden).Include(x => x.Federatie).ToListAsync();
             return View();
         }
 

@@ -1,22 +1,20 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace ProjectWebApp.Models
 {
-    public class Klant
+    public class Klant : IdentityUser
     {
-        [Key]
-        public int KlantID { get; set; }
         [Required]
         [MaxLength(100)]
         public string Naam { get; set; }
         [Required]
         [MaxLength(100)]
         public string Voornaam { get; set; }
-        [Required]
-        public string Email { get; set; }
         [Required]
         [MaxLength(100)]
         public string Land { get; set; }
@@ -32,8 +30,8 @@ namespace ProjectWebApp.Models
         [Required]
         [MaxLength(100)]
         public string Gemeente { get; set; }
-        [Required]
-        [MinLength(8)]
-        public string Paswoord { get; set; }
+
+        [NotMapped]
+        public string Rol { get; set; }
     }
 }

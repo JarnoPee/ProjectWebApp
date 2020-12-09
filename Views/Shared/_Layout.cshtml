@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ProjectWebApp.Utility
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,22 +26,34 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Content Management
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Opleidingen" asp-action="Index">Opleidingen</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Categories" asp-action="Index">Categorieën</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Federaties" asp-action="Index">Federatie</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Niveaus" asp-action="Index">Niveau</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Omschrijvings" asp-action="Index">Omschrijvingen</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Slots" asp-action="Index">Slot</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Voorwaarden" asp-action="Index">Voorwaarden</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Algemeenheden" asp-action="Index">Algemeenheden</a>
+                    @if (User.IsInRole(StatischeDetails.Role_Admin))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Content Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Opleidingen" asp-action="Index">Opleidingen</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Categories" asp-action="Index">Categorieën</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Federaties" asp-action="Index">Federatie</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Niveaus" asp-action="Index">Niveau</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Omschrijvings" asp-action="Index">Omschrijvingen</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Slots" asp-action="Index">Slot</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Voorwaarden" asp-action="Index">Voorwaarden</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Algemeenheden" asp-action="Index">Algemeenheden</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                User Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">User</a>
+                            </div>
+                        </li>
+                    }
 
-                        </div>
-                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -49,7 +62,7 @@
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
                         <form class="form-inline ">
-                            <input class="form-control form-control-sm mx-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                            <input class="form-control form-control-sm mx-3 w-75" type="text" placeholder="Zoek een opleiding" aria-label="Search">
                             <button type="submit" style="background-color: transparent; border:none; margin-left: -10px"><i class="fas fa-search" aria-hidden="true"></i></button>
                         </form>
                     </div>
