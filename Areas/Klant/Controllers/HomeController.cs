@@ -29,6 +29,16 @@ namespace ProjectWebApp.Areas.Klant.Controllers
             IEnumerable<Opleiding> opleidingLijst = await _unitOfWork.OpleidingRepository.GetAll().Include(x => x.Voorwaarden).Include(x => x.Federatie).ToListAsync();
             return View();
         }
+        public IActionResult Details(int id)
+        {
+            var opleidingFromDb = _unitOfWork.OpleidingRepository.GetFirstOrDefault(u => u.OpleidingID == id, includeProperties: "Algemeenheden,Categorie,Federatie,Niveau,Omschrijving,Slot,Voorwaarden");
+            OpgeslagenOpleidingen opgeslagenOpleidingObj = new OpgeslagenOpleidingen()
+            {
+                Opleiding = opleidingFromDb,
+                OpleidingID = opleidingFromDb.OpleidingID
+            };
+            return View(opgeslagenOpleidingObj);
+        }
 
         public IActionResult Privacy()
         {

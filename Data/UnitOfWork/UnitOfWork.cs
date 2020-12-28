@@ -19,6 +19,7 @@ namespace ProjectWebApp.Data.UnitOfWork
         private IGenericRepository<Opleiding> opleidingRepository;
         private IGenericRepository<Slot> slotRepository;
         private IGenericRepository<Voorwaarden> voorwaardenRepository;
+        private IGenericRepository<OpgeslagenOpleidingen> opgeslagenOpleidingenRepository;
 
 
         public UnitOfWork(ApplicationDbContext context)
@@ -123,6 +124,17 @@ namespace ProjectWebApp.Data.UnitOfWork
                     this.voorwaardenRepository = new GenericRepository<Voorwaarden>(_context);
                 }
                 return voorwaardenRepository;
+            }
+        }
+        public IGenericRepository<OpgeslagenOpleidingen> OpgeslagenOpleidingenRepository
+        {
+            get
+            {
+                if (this.opgeslagenOpleidingenRepository == null)
+                {
+                    this.opgeslagenOpleidingenRepository = new GenericRepository<OpgeslagenOpleidingen>(_context);
+                }
+                return opgeslagenOpleidingenRepository;
             }
         }
         public async Task Save()

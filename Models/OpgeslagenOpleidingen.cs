@@ -20,9 +20,9 @@ namespace ProjectWebApp.Models
         [ForeignKey("Klant")]
         public Klant klant { get; set; }
 
-        public int Opleiding { get; set; }
+        public int OpleidingID { get; set; }
         [ForeignKey("Opleiding")]
-        public Opleiding opleiding { get; set; }
+        public Opleiding Opleiding { get; set; }
 
         [Range(1, 1000, ErrorMessage = "Gelieve en waarde tussen 1 en 1000 te geven")]
         public int Count { get; set; }

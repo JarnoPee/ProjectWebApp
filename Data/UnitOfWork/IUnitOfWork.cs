@@ -19,6 +19,7 @@ namespace ProjectWebApp.Data.UnitOfWork
         IGenericRepository<Opleiding> OpleidingRepository { get; }
         IGenericRepository<Slot> SlotRepository { get; }
         IGenericRepository<Voorwaarden> VoorwaardenRepository { get; }
+        IGenericRepository<OpgeslagenOpleidingen> OpgeslagenOpleidingenRepository { get; }
         Task Save();
     }
 }

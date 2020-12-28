@@ -437,6 +437,9 @@ E:\AA Thomas More\2020 - 2021\Webapplicaties\Project\ProjectWebApp\bin\Debug\net
 E:\AA Thomas More\2020 - 2021\Webapplicaties\Project\ProjectWebApp\obj\Debug\netcoreapp3.1\ProjectWebApp.csproj.CoreCompileInputs.cache
 E:\AA Thomas More\2020 - 2021\Webapplicaties\Project\ProjectWebApp\obj\Debug\netcoreapp3.1\ProjectWebApp.MvcApplicationPartsAssemblyInfo.cs
 E:\AA Thomas More\2020 - 2021\Webapplicaties\Project\ProjectWebApp\obj\Debug\netcoreapp3.1\ProjectWebApp.MvcApplicationPartsAssemblyInfo.cache
+E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
+E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\appsettings.json
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\libman.json
@@ -809,7 +812,6 @@ E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
@@ -856,9 +858,7 @@ E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
-E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
-E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
@@ -977,3 +977,5 @@ E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\obj\Debug\netcoreapp3
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\obj\Debug\netcoreapp3.1\ProjectWebApp.dll
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\obj\Debug\netcoreapp3.1\ProjectWebApp.pdb
 E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\obj\Debug\netcoreapp3.1\ProjectWebApp.genruntimeconfig.cache
+E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\obj\Debug\netcoreapp3.1\ProjectWebApp.csprojAssemblyReference.cache
+E:\AA Thomas More\2020 - 2021\Webapplicaties\ProjectWebApp\obj\Debug\netcoreapp3.1\Razor\Areas\Klant\Views\Home\Details.cshtml.g.cs
