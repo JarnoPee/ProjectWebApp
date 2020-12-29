@@ -33,5 +33,7 @@ namespace ProjectWebApp.Models
 
         [NotMapped]
         public string Rol { get; set; }
+
+        public List<OpgeslagenOpleidingen> OpgeslagenOpleidingens { get; set; }
     }
 }

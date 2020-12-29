@@ -1,7 +1,7 @@
 ﻿@model ProjectWebApp.Models.OpgeslagenOpleidingen
 
 <form method="post">
-    <input hidden asp-for="OpleidingID" />
+    <input hidden asp-for="OpleidingId" />
     <div class="container backgroundWhite">
         <div class="card">
             <div class="card-header bg-light text-light ml-0 row container">
@@ -22,7 +22,7 @@
                                 <h5 class="text-muted">Federatie: @Model.Opleiding.Federatie.Naam</h5>
                             </div>
                             <div class="row pl-2">
-                                <h5 class="text-muted pb-2">Prijs Opleiding: @Model.Opleiding.Prijs.ToString("c")</h5>
+                                <h5 class="text-muted pb-2">Prijs Opleiding: &euro;@Model.Opleiding.Prijs.ToString("0.00")</h5>
                             </div>
                             <div class="row pl-2">
                                 <p class="text-secondary">@Html.Raw(Model.Opleiding.Omschrijving.Beschrijving)</p>
@@ -41,9 +41,9 @@
                                 <div class="col-10"><input class="form-control" asp-for="Count" /></div>
                             </div>
                         </div>
-                        @*<div class="col-12 col-lg-3 offset-lg-1 text-center">
-                            <img src="@Model.Product.ImageUrl" width="100%" class="rounded" />
-                        </div>*@
+                        <div class="col-12 col-lg-3 offset-lg-1 text-center">
+                            <img src="@Model.Opleiding.ImageUrl" width="100%" class="rounded" />
+                        </div>
                     </div>
                 </div>
             </div>

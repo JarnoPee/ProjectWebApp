@@ -43,7 +43,7 @@ namespace ProjectWebApp.Areas.Admin.Controllers
                 .Include(o => o.Omschrijving)
                 .Include(o => o.Slot)
                 .Include(o => o.Voorwaarden)
-                .FirstOrDefaultAsync(m => m.OpleidingID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (opleiding == null)
             {
                 return NotFound();
@@ -70,7 +70,7 @@ namespace ProjectWebApp.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OpleidingID,Naam,Prijs,NiveauID,FederatieID,CategorieID,SlotID,VoorwaardenID,OmschrijvingID,AlgemeenhedenID")] Opleiding opleiding)
+        public async Task<IActionResult> Create([Bind("OpleidingID,Naam,Prijs,ImageUrl,NiveauID,FederatieID,CategorieID,SlotID,VoorwaardenID,OmschrijvingID,AlgemeenhedenID")] Opleiding opleiding)
         {
             if (ModelState.IsValid)
             {
@@ -116,9 +116,9 @@ namespace ProjectWebApp.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OpleidingID,Naam,Prijs,NiveauID,FederatieID,CategorieID,SlotID,VoorwaardenID,OmschrijvingID,AlgemeenhedenID")] Opleiding opleiding)
+        public async Task<IActionResult> Edit(int id, [Bind("OpleidingID,Naam,Prijs,ImageUrl,NiveauID,FederatieID,CategorieID,SlotID,VoorwaardenID,OmschrijvingID,AlgemeenhedenID")] Opleiding opleiding)
         {
-            if (id != opleiding.OpleidingID)
+            if (id != opleiding.Id)
             {
                 return NotFound();
             }
@@ -132,7 +132,7 @@ namespace ProjectWebApp.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OpleidingExists(opleiding.OpleidingID))
+                    if (!OpleidingExists(opleiding.Id))
                     {
                         return NotFound();
                     }
@@ -169,7 +169,7 @@ namespace ProjectWebApp.Areas.Admin.Controllers
                 .Include(o => o.Omschrijving)
                 .Include(o => o.Slot)
                 .Include(o => o.Voorwaarden)
-                .FirstOrDefaultAsync(m => m.OpleidingID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (opleiding == null)
             {
                 return NotFound();
@@ -191,7 +191,7 @@ namespace ProjectWebApp.Areas.Admin.Controllers
 
         private bool OpleidingExists(int id)
         {
-            return _context.Opleidingen.Any(e => e.OpleidingID == id);
+            return _context.Opleidingen.Any(e => e.Id == id);
         }
     }
 }

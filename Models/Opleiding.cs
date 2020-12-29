@@ -8,10 +8,11 @@ namespace ProjectWebApp.Models
     public class Opleiding
     {
         [Key]
-        public int OpleidingID { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Naam { get; set; }
         public double Prijs { get; set; }
+        public string ImageUrl { get; set; }
         public int NiveauID { get; set; }
         public int FederatieID { get; set; }
         public int CategorieID { get; set; }
@@ -26,5 +27,7 @@ namespace ProjectWebApp.Models
         public Voorwaarden Voorwaarden { get; set; }
         public Omschrijving Omschrijving { get; set; }
         public Algemeenheden Algemeenheden { get; set; }
+        public List<OpgeslagenOpleidingen> OpgeslagenOpleidingens { get; set; }
+
     }
 }

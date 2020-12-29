@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectWebApp.Data;
 
 namespace ProjectWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201229140744_MeerOpMeerRelatie")]
+    partial class MeerOpMeerRelatie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -320,24 +322,24 @@ namespace ProjectWebApp.Data.Migrations
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
-                    b.Property<string>("KlantId")
+                    b.Property<string>("KlantID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("OpleidingId")
+                    b.Property<int>("OpleidingID")
                         .HasColumnType("int");
 
                     b.HasKey("OpgeslagenOpleidingenID");
 
-                    b.HasIndex("KlantId");
+                    b.HasIndex("KlantID");
 
-                    b.HasIndex("OpleidingId");
+                    b.HasIndex("OpleidingID");
 
                     b.ToTable("OpgeslagenOpleidingen");
                 });
 
             modelBuilder.Entity("ProjectWebApp.Models.Opleiding", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OpleidingID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -373,7 +375,7 @@ namespace ProjectWebApp.Data.Migrations
                     b.Property<int>("VoorwaardenID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OpleidingID");
 
                     b.HasIndex("AlgemeenhedenID");
 
@@ -529,11 +531,11 @@ namespace ProjectWebApp.Data.Migrations
                 {
                     b.HasOne("ProjectWebApp.Models.Klant", "Klant")
                         .WithMany("OpgeslagenOpleidingens")
-                        .HasForeignKey("KlantId");
+                        .HasForeignKey("KlantID");
 
                     b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
                         .WithMany("OpgeslagenOpleidingens")
-                        .HasForeignKey("OpleidingId")
+                        .HasForeignKey("OpleidingID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectWebApp.Data;
 
 namespace ProjectWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201228125018_UpdateVanOpleidingModel")]
+    partial class UpdateVanOpleidingModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -310,34 +312,9 @@ namespace ProjectWebApp.Data.Migrations
                     b.ToTable("Omschrijvingen");
                 });
 
-            modelBuilder.Entity("ProjectWebApp.Models.OpgeslagenOpleidingen", b =>
-                {
-                    b.Property<int>("OpgeslagenOpleidingenID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<string>("KlantId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("OpleidingId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OpgeslagenOpleidingenID");
-
-                    b.HasIndex("KlantId");
-
-                    b.HasIndex("OpleidingId");
-
-                    b.ToTable("OpgeslagenOpleidingen");
-                });
-
             modelBuilder.Entity("ProjectWebApp.Models.Opleiding", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OpleidingID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -373,7 +350,7 @@ namespace ProjectWebApp.Data.Migrations
                     b.Property<int>("VoorwaardenID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OpleidingID");
 
                     b.HasIndex("AlgemeenhedenID");
 
@@ -521,19 +498,6 @@ namespace ProjectWebApp.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProjectWebApp.Models.OpgeslagenOpleidingen", b =>
-                {
-                    b.HasOne("ProjectWebApp.Models.Klant", "Klant")
-                        .WithMany("OpgeslagenOpleidingens")
-                        .HasForeignKey("KlantId");
-
-                    b.HasOne("ProjectWebApp.Models.Opleiding", "Opleiding")
-                        .WithMany("OpgeslagenOpleidingens")
-                        .HasForeignKey("OpleidingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

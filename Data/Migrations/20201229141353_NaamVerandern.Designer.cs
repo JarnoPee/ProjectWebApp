@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectWebApp.Data;
 
 namespace ProjectWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201229141353_NaamVerandern")]
+    partial class NaamVerandern
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -337,7 +339,7 @@ namespace ProjectWebApp.Data.Migrations
 
             modelBuilder.Entity("ProjectWebApp.Models.Opleiding", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("OpleidingID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -373,7 +375,7 @@ namespace ProjectWebApp.Data.Migrations
                     b.Property<int>("VoorwaardenID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("OpleidingID");
 
                     b.HasIndex("AlgemeenhedenID");
 

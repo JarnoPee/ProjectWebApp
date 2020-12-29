@@ -16,12 +16,12 @@ namespace ProjectWebApp.Models
         [Key]
         public int OpgeslagenOpleidingenID { get; set; }
 
-        public string Klant { get; set; }
-        [ForeignKey("Klant")]
-        public Klant klant { get; set; }
+        public string KlantId { get; set; }
+        [ForeignKey("KlantId")]
+        public Klant Klant { get; set; }
 
-        public int OpleidingID { get; set; }
-        [ForeignKey("Opleiding")]
+        public int OpleidingId { get; set; }
+        [ForeignKey("OpleidingId")]
         public Opleiding Opleiding { get; set; }
 
         [Range(1, 1000, ErrorMessage = "Gelieve en waarde tussen 1 en 1000 te geven")]
