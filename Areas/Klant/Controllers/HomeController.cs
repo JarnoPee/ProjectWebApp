@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using ProjectWebApp.Data;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using ProjectWebApp.Utility;
 
 namespace ProjectWebApp.Areas.Klant.Controllers
 {
@@ -52,18 +54,16 @@ namespace ProjectWebApp.Areas.Klant.Controllers
         [Authorize]
         public async Task<IActionResult> Details(OpgeslagenOpleidingen OpgeslagenOpleidingObject)
         {
-            OpgeslagenOpleidingObject.OpleidingId = 0;
             if (ModelState.IsValid)
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 OpgeslagenOpleidingObject.KlantId = claim.Value;
 
-                OpgeslagenOpleidingen opgeslagenOpleidingObjectFromDB = _unitOfWork.OpgeslagenOpleidingenRepository.GetFirstOrDefault( u => u.Klant == OpgeslagenOpleidingObject.Klant && u.OpleidingId == OpgeslagenOpleidingObject.OpleidingId, includeProperties: "Opleiding");
+                OpgeslagenOpleidingen opgeslagenOpleidingObjectFromDB = _unitOfWork.OpgeslagenOpleidingenRepository.GetFirstOrDefault( u => u.KlantId == OpgeslagenOpleidingObject.KlantId && u.OpleidingId == OpgeslagenOpleidingObject.OpleidingId, includeProperties: "Opleiding");
 
                 if (opgeslagenOpleidingObjectFromDB == null)
                 {
-                    //no records exists in database for that product for that user
                     _unitOfWork.OpgeslagenOpleidingenRepository.Create(OpgeslagenOpleidingObject);
                 }
                 else
@@ -71,13 +71,6 @@ namespace ProjectWebApp.Areas.Klant.Controllers
                     opgeslagenOpleidingObjectFromDB.Count += OpgeslagenOpleidingObject.Count;
                 }
                 await _unitOfWork.Save();
-
-                //var count = _unitOfWork.OpgeslagenOpleidingenRepository
-                //    .GetAll(c => c.ApplicationUserId == CartObject.ApplicationUserId)
-                //    .ToList().Count();
-
-                ////HttpContext.Session.SetObject(SD.ssShoppingCart, CartObject);
-                //HttpContext.Session.SetInt32(SD.ssShoppingCart, count);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -94,7 +87,7 @@ namespace ProjectWebApp.Areas.Klant.Controllers
 
 
         }
-        public IActionResult Privacy()
+        public IActionResult AboutUs()
         {
             return View();
         }

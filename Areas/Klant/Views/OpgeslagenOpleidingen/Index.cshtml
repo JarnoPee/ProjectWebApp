@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProjectWebApp.Models.OpgeslagenOpleidingen>
+@{
+    ViewData["Title"] = "Favorieten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <br />
+    @if (Model.Count() > 0)
+    {
+    <div class="backgroundWhiteBorder">
+        <div class="container">
+            <div class="card">
+                <div class="card-header bg-dark text-light ml-0 row container">
+                    <div class="col-6">
+                        <i class="fas fa-heart"></i>
+                        Favorieten Lijst
+                    </div>
+                    <div class="col-6 text-right">
+                        <a asp-area="Klant" asp-controller="Home" asp-action="Index" class="btn btn-outline-info btn-sm">Terug naar opleidingen</a>
+                    </div>
+                </div>          
+                <div class="card-body">
+                    @foreach (var item in Model)
+                    {
+                        <div class="row">
+                            <div class="d-none d-lg-block col-lg-1 text-center py-2">
+                                <img src="@item.Opleiding.ImageUrl" class="rounded" width="100%" />
+                            </div>
+                            <div class="col-12 text-sm-center col-lg-6 text-lg-left">
+                                <h5><strong>@item.Opleiding.Naam</strong></h5>
+                                <p><small>@item.Opleiding.Algemeenheden.Beschrijving</small></p>
+                            </div>
+                            <div class="col-12 text-sm-center col-lg-5 text-lg-right row">
+                                <div class="col-4 text-md-right" style="padding-top:5px;">
+                                    <h6><strong>&euro;@item.Opleiding.Prijs<span class="text-muted"></h6>
+                                </div>
+                                <div class="col-2 col-sm-4 col-lg-2 text-right">
+                                    <a asp-action="Delete" asp-route-Id="@item.OpgeslagenOpleidingenID" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+    else
+    {
+        <div>Er zijn nog geen items in de uw favorietenlijst. </div>
+    }
+</form>

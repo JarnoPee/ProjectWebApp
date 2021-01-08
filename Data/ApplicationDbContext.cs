@@ -22,5 +22,6 @@ namespace ProjectWebApp.Data
         public DbSet<Omschrijving> Omschrijvingen { get; set; }
         public DbSet<Slot> Slot { get; set; }
         public DbSet<Voorwaarden> Voorwaarden { get; set; }
+        public DbSet<ProjectWebApp.Models.OpgeslagenOpleidingen> OpgeslagenOpleidingen { get; set; }
     }
 }

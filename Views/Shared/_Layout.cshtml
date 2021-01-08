@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/assets/favicon.png" rel="icon" title="Favicon">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
@@ -52,12 +53,17 @@
                             </div>
                         </li>
                     }
+                    <li style="color:white; margin-left: 50px" >
+                        <a asp-area="Klant" asp-controller="OpgeslagenOpleidingen" asp-action="Index" class="nav-link">
+                            Favorieten <i class="fas fa-heart"></i>
+                        </a>
+                    </li>
 
 
                 </ul>
             </div>
         </nav>
-        <section style="position: center; z-index:1; top:75px; width: 100%; margin-left: 10%; margin-top: 10px;">
+        @*<section style="position: center; z-index:1; top:75px; width: 100%; margin-left: 10%; margin-top: 10px;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
@@ -68,7 +74,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>*@
 
     </header>
     <div class="container">
@@ -79,7 +85,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - JP Diving - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - JP Diving - <a asp-area="Klant" asp-controller="Home" asp-action="AboutUs">Over ons</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

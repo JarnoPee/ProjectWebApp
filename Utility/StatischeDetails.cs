@@ -10,6 +10,7 @@ namespace ProjectWebApp.Utility
         public const string Role_User_Indi = "Individuele Gebruiker";
         public const string Role_Admin = "Admin";
 
+
         public static string ConvertToRawHtml(string source)
         {
             char[] array = new char[source.Length];

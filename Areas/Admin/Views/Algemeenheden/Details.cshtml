@@ -4,28 +4,34 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h1>Details</h1>
 
 <div>
-    <h4>Algemeenheden</h4>
+    <h4>Opleiding</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Titel)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Titel)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Beschrijving)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Beschrijving)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.AlgemeenhedenID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="col">
+        <a asp-action="Edit" asp-route-id="@Model.AlgemeenhedenID" style="width: 150px; margin-bottom:5px;" class="btn btn-primary form-control">Aanpassen </a>
+    </div>
+    <div class="col">
+        <a asp-action="Index" style="width: 150px" class="btn btn-success form-control">Terug naar lijst</a>
+    </div>
+
 </div>
+
+

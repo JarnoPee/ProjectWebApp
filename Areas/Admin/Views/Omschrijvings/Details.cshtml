@@ -26,6 +26,10 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.OmschrijvingID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="col">
+        <a asp-action="Edit" asp-route-id="@Model.OmschrijvingID" style="width: 150px; margin-bottom:5px;" class="btn btn-primary form-control">Aanpassen </a>
+    </div>
+    <div class="col">
+        <a asp-action="Index" style="width: 150px" class="btn btn-success form-control">Terug naar lijst</a>
+    </div>
 </div>
