@@ -72,17 +72,7 @@ namespace ProjectWebApp
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
-            services.AddAuthentication().AddFacebook(options =>
-            {
-                options.AppId = "229009675291278";
-                options.AppSecret = "f0872997ba9bbc8fc3fa68beea6a802a";
-            });
-            services.AddAuthentication().AddGoogle(options =>
-            {
-                options.ClientId = "432094131487-pdeunmad84c8u54g03valhsdv8shf9hn.apps.googleusercontent.com";
-                options.ClientSecret = "p85PnwMDXKfN-VZD8BZ1h-5P";
-
-            });
+           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
